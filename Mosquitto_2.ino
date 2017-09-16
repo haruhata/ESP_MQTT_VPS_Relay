@@ -1,6 +1,5 @@
 
 /*
-
  It connects to an MQTT server then:
   - '0' switches off relay
   - '1' switches on relay
@@ -31,8 +30,7 @@ bool relayState = LOW;
 
 void setup_wifi() {
   delay(10);
-  
-                                    // We start by connecting to a WiFi network
+                                      // We start by connecting to a WiFi network
   Serial.println();
   Serial.print("Connecting to ");
   Serial.println(ssid);
@@ -40,7 +38,6 @@ void setup_wifi() {
   WiFi.begin(ssid, password);
 
   while (WiFi.status() != WL_CONNECTED) {
-
    
     for(int i = 0; i<500; i++){
       
@@ -62,7 +59,6 @@ void callback(char* topic, byte* payload, unsigned int length) {
     Serial.print((char)payload[i]);
   }
   Serial.println();
-
                                                // Switch on the LED if an 1 was received as first character
   if ((char)payload[0] == '0') {
     digitalWrite(relay_pin, LOW);              // Turn the LED on (Note that LOW is the voltage level
@@ -101,8 +97,6 @@ void reconnect() {
   }
 }
 
-
-
 void setup() {
               
   pinMode(relay_pin, OUTPUT);               // Initialize the relay pin as an output
@@ -123,5 +117,4 @@ void loop() {
     reconnect();
   }
   client.loop();
- 
-}
+ }
