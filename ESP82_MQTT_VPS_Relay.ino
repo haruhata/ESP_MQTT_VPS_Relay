@@ -1,6 +1,6 @@
 
 /*
- It connects to an MQTT server then:
+ Esp8266 connects to an MQTT on a private VPS, then:
   - '0' switches off relay
   - '1' switches on relay
 
@@ -12,9 +12,9 @@
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
 
-const char* ssid = "pieterse";
-const char* password = "yours246";
-const char* mqtt_server = "181.214.69.207";
+const char* ssid = "LocalRouterSSID";
+const char* password = "LocalRouterPW";
+const char* mqtt_server = "VPSServerIP";
 
 WiFiClient espClient;
 PubSubClient client(espClient);
